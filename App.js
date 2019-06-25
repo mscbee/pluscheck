@@ -1,12 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Heading from './Heading';
+import { StyleSheet, View } from 'react-native';
+import Heading from './components/Heading';
+import HospitalList from './components/HospitalList';
 
 export default function App() {
   return (
-    <View>
-      <Heading />
-    </View>
+      <Heading style={{width: 100, height: 100,}}/>,
+    //  <View style={{width: 100, height: 100, backgroundColor: 'skyblue'}} />
+      <HospitalList />
   );
 }
 
