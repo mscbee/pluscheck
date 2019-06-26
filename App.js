@@ -2,20 +2,12 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import Heading from './components/Heading';
 import HospitalList from './components/HospitalList';
+import Map from './components/Map';
 
 export default function App() {
   return (
-      <Heading style={{width: 100, height: 100,}}/>,
-    //  <View style={{width: 100, height: 100, backgroundColor: 'skyblue'}} />
-      <HospitalList />
+      <Heading />,
+      <Map />
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
