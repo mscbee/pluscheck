@@ -13,7 +13,7 @@ class Logo extends React.Component {
             <View> 
              <Image 
                 style={styles.logo}
-                source={require('../assets/logo.jpg')} 
+                source={require('../assets/pluscheck.png')} 
             /> 
             </View>
         );
@@ -22,9 +22,9 @@ class Logo extends React.Component {
 
 const styles = StyleSheet.create({
     logo: {
-        width: 100, 
-        height: 30, 
-        marginTop: 100, 
+       // width: 100, 
+        height: 300, 
+        marginTop: 200, 
         alignItems:'center', 
         justifyContent:'center'
     },
