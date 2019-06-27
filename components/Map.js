@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TouchableHighlight, StyleSheet, Image } from 'react-native';
+import { ScrollView, TouchableHighlight, StyleSheet, Image } from 'react-native';
 
 class Map extends React.Component {
     handleMapTap = () => {
@@ -8,14 +8,15 @@ class Map extends React.Component {
 
     render() {
         return (
-            <View>
+            <ScrollView minimumZoomScale={0.9} maximumZoomScale={1} bouncesZoom={true}>
                 <TouchableHighlight 
                  style={styles.container} 
                  onPress={this.handleMapTap}
+                 underlayColor="white"
                 >
                     <Image source={require('../assets/map.png')} /> 
                 </TouchableHighlight> 
-            </View>
+            </ScrollView>
         );
     }
 }
