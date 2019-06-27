@@ -22,9 +22,9 @@ class Logo extends React.Component {
 
 const styles = StyleSheet.create({
     logo: {
-       // width: 100, 
-        height: 300, 
-        marginTop: 200, 
+        width: 250, 
+        height: 250, 
+        marginLeft: 55, 
         alignItems:'center', 
         justifyContent:'center'
     },

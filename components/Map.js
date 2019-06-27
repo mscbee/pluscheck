@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TouchableHighlight, StyleSheet } from 'react-native';
+import { Text, View, TouchableHighlight, StyleSheet, Image } from 'react-native';
 
 class Map extends React.Component {
     handleMapTap = () => {
@@ -13,7 +13,7 @@ class Map extends React.Component {
                  style={styles.container} 
                  onPress={this.handleMapTap}
                 >
-                    <Text>Map</Text>
+                    <Image source={require('../assets/map.png')} /> 
                 </TouchableHighlight> 
             </View>
         );
@@ -23,11 +23,8 @@ class Map extends React.Component {
 const styles = StyleSheet.create({
     container: {
         height:200,
-       // marginTop: 20,
         justifyContent: 'center',
         alignItems: 'center',
-       // backgroundColor: 'white',
-
     },
 })
 
