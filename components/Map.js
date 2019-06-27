@@ -1,20 +1,35 @@
 import React from 'react';
-import { ScrollView, TouchableHighlight, StyleSheet, Image } from 'react-native';
+import { ScrollView, TouchableHighlight, StyleSheet, Image, Modal, Text } from 'react-native';
 
 class Map extends React.Component {
-    handleMapTap = () => {
-        alert('Hospital List')
-    }
+
+    state = {
+        modalVisible: false,
+      };
+    
+      setModalVisible(visible) {
+        this.setState({modalVisible: visible});
+      }
 
     render() {
         return (
             <ScrollView minimumZoomScale={0.9} maximumZoomScale={1} bouncesZoom={true}>
+                <Modal
+                animationType="slide"
+                //transparent={false}
+                visible={this.state.modalVisible}
+                presentationStyle="overFullScreen"
+                onRequestClose={() => {
+                    Alert.alert('Modal has been closed.');
+                }} />
                 <TouchableHighlight 
                  style={styles.container} 
-                 onPress={this.handleMapTap}
+                 onPress={() => {
+                    this.setModalVisible(!this.state.modalVisible);
+                  }}
                  underlayColor="white"
                 >
-                    <Image source={require('../assets/map.png')} /> 
+                    <Image source={require('../assets/map.png')} />
                 </TouchableHighlight> 
             </ScrollView>
         );
