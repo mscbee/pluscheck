@@ -1,25 +1,20 @@
 import React from 'react';
-import {
-    View,
-    Text,
-    TouchableHighlight,
-    StyleSheet
-} from 'react-native';
+import { Text, View, TouchableHighlight, StyleSheet } from 'react-native';
 
 class Map extends React.Component {
-
     handleMapTap = () => {
         alert('Hospital List')
     }
+
     render() {
-        return(
+        return (
             <View>
                 <TouchableHighlight 
                  style={styles.container} 
                  onPress={this.handleMapTap}
                 >
                     <Text>Map</Text>
-                </TouchableHighlight>
+                </TouchableHighlight> 
             </View>
         );
     }
@@ -27,12 +22,13 @@ class Map extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-      marginTop: 60,
+        height:200,
+       // marginTop: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+       // backgroundColor: 'white',
+
     },
-  });
+})
 
 export default Map;
