@@ -1,26 +1,28 @@
 import React from 'react';
-import { ScrollView, TouchableHighlight, StyleSheet, Image } from 'react-native';
-import Iosmap from './Iosmap.js';
+import { ScrollView, TouchableHighlight, StyleSheet, Image, Button } from 'react-native';
+import AppNavigator from './AppNavigation';
+import { createAppContainer } from 'react-navigation';
+
+//const IosMap = createAppContainer(AppNavigator);
 
 export default class MapDiagram extends React.Component {
 
-    handleAddPress = () => {
-        return(
-            <Iosmap />
-        );
-        //this.props.navigation.navigate('iosmap');
+    handleAddPress = () => {  
+        this.props.navigation.navigate("IosMap") 
+  
     }
     
     render() {
         return (
             <ScrollView minimumZoomScale={0.9} maximumZoomScale={1} bouncesZoom={true}>
-                <TouchableHighlight 
-                 style={styles.container} 
-                 underlayColor="white"
-                 onPress={this.handleAddPress}
-                 >
-                    <Image source={require('../assets/map.png')} />
-                </TouchableHighlight> 
+                    <TouchableHighlight 
+                    style={styles.container} 
+                    underlayColor="white"
+                    >
+                        <Button title={'hey'} onPress={this.handleAddPress}> 
+                            <Image source={require('../assets/map.png')} /> 
+                        </Button>
+                    </TouchableHighlight> 
             </ScrollView>
         );
     }
