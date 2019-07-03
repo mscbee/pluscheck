@@ -2,14 +2,17 @@ import React from 'react';
 import { ScrollView, TouchableHighlight, StyleSheet, Image, Button } from 'react-native';
 import AppNavigator from './AppNavigation';
 import { createAppContainer } from 'react-navigation';
+import { requireNativeComponent } from 'react-native-web/dist/index';
 
-//const IosMap = createAppContainer(AppNavigator);
+
+
 
 export default class MapDiagram extends React.Component {
 
+    
     handleAddPress = () => {  
         this.props.navigation.navigate("IosMap") 
-  
+        
     }
     
     render() {
@@ -27,7 +30,6 @@ export default class MapDiagram extends React.Component {
         );
     }
 }
-
 
 const styles = StyleSheet.create({
     container: {
