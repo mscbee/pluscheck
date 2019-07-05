@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native'; 
+import { View, Text, Button } from 'react-native'; 
 
 class HospitalList extends Component {
-    z
+
+    returnToMainPage = () => {  
+        this.props.navigation.navigate("MainAppView") 
+        
+    }
+
     render() {
         return(
             <View>
-                <Text>Hospital List</Text>
+                <Button title={'Press'} onPress={this.returnToMainPage}>
+                    <Text>Hospital List</Text>
+                </Button>
             </View>
         );
     }

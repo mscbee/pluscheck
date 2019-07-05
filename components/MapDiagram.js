@@ -1,11 +1,11 @@
 import React from 'react';
-import { ScrollView, TouchableHighlight, StyleSheet, Image, Button } from 'react-native';
+import { ScrollView, TouchableHighlight, StyleSheet, Image } from 'react-native';
 
 export default class MapDiagram extends React.Component {
+
    
     handleAddPress = () => {  
-        this.props.navigation.navigate("IosMap") 
-        
+        this.props.navigation.navigate({routeName:'map'})   
     }
     
     render() {
@@ -14,6 +14,7 @@ export default class MapDiagram extends React.Component {
                     <TouchableHighlight 
                     style={styles.container} 
                     underlayColor="white"
+                    onPress={this.handleAddPress}
                     >                           
                         <Image source={require('../assets/map.png')} /> 
                     </TouchableHighlight> 

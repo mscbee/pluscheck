@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import MapDiagram from './MapDiagram';
 import Logo from './Logo';
-import IosMap from './IosMap';
+import MapView from 'react-native-maps';
 
 
 class MainAppView extends React.Component {
@@ -11,6 +11,7 @@ class MainAppView extends React.Component {
             <View style={styles.mainAppView} >
                 <Logo />
                 <MapDiagram />
+                <MapView />
             </View>
         );
     }
