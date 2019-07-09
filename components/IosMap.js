@@ -6,20 +6,23 @@ class IosMap extends React.Component {
       
     
     render() { 
-        //const { region } = this.props
- 
         return ( 
             <MapView 
                 flex={1} 
-                //region={region}
                 showsUserLocation={true}
                 showsMyLocationButton={true}
+                followsUserLocation={true}
+                showsMyLocationButton={true}
+                showCompass={true}
+                showScale={true}
+                scrollEnabled={true}
+                loadingEnabled={true}
+                minZoomLevel={1}
+                rotateEnabled={true}
             >
             </MapView>
-
         );  
     }
 }
 
 export default IosMap;
-

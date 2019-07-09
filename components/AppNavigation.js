@@ -1,12 +1,12 @@
 import React from 'react';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import MainAppView from './MainAppView';
-import MapView from 'react-native-maps';
+import MapResults from './MapResults';
 
 const AppNavigator = createStackNavigator(
     {
         MainAppView: MainAppView,
-        map: MapView
+        map: MapResults
     },
     {
         initialRouteName: "MainAppView"

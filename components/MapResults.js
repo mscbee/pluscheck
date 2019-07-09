@@ -4,6 +4,11 @@ import { View } from 'react-native';
 import YelpService from './Yelp';
 import { Location } from 'expo-location';
 import { Permissions } from 'expo-permissions';
+import { Button } from 'react-native-elements';
+import get from 'lodash/get';
+import pick from 'lodash/pick';
+
+//import Marker from 'react-native-maps';
 
 const deltas = {
     latitudeDelta: 0.0922,
@@ -13,16 +18,22 @@ const deltas = {
 export default class MapResults extends React.Component {
 
     state = {
-        region: null,
+        location: null,
         hospitals: []
     }
-
 
     componentWillMount() {
         this.getLocationAsync();
       }
+
+    getHospitals = async () => {
+        const coords = get(this.state.location, 'coords');
+		const userLocation = pick(coords, ['latitude', 'longitude']);
+        const hospitals = await YelpService.getHospitals(userLocation);
+        this.setState({ hospitals });
+    };
     
-      getLocationAsync = async () => {
+    getLocationAsync = async () => {
         let { status } = await Permissions.askAsync(Permissions.LOCATION);
         if (status !== 'granted') {
           this.setState({
@@ -31,32 +42,23 @@ export default class MapResults extends React.Component {
         }
 
         let location = await Location.getCurrentPositionAsync({});
-        const region = {
-        latitude: location.coords.latitude,
-        longitude: location.coords.longitude,
-        ...deltas
-        };
-        await this.setState({ region });
+        // const region = {
+        // latitude: location.coords.latitude,
+        // longitude: location.coords.longitude,
+        // ...deltas
+        // };
+        await this.setState({ location });
         await this.getHospitals();
 
-     }
-
-    
-
-    getHospitals = async () => {
-        const { latitude, longitude } = this.state.region;
-        const userLocation = { latitude, longitude };
-        const hospitals = await YelpService.getHospitals(userLocation);
-        this.setState({ hospitals });
-      };
+    };
 
 
     render() {
-        const { region, hospitals } = this.state;
+        const { location, hospitals } = this.state;
         return(
-            <View style={{flex:1}}>
+            <View style={{flex:7}}>
                 <IosMap
-                region={region}
+                location={location}
                 places={hospitals}
                 />
             </View>

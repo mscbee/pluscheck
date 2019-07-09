@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const YELP_API_KEY = '8Quw4FZLUWl4QJHWcPA7HpDG93NH7rWZJIV0bt5VumuVHsHpQkk4sICdyAczRdneQxsdCh0nSkzzMORAI00AKRVljen2o3uD-QW_H2FsT6lzBVtpcgipNHjP5mkfXXYx'
+const YELP_API_KEY = // {API_KEY_REMOVED_FOR_SECURITY}
 
 const api = axios.create({
   baseURL: 'https://api.yelp.com/v3',
@@ -9,20 +9,18 @@ const api = axios.create({
   },
 })
 
-const getHospitals = userLocation => {
+const getHospitals = () => {
   return api
-    .get('/categories/search', {
+    .get('/categories/', {
       params: {
-        limit: 10,
-        categories: 'hospitals',
-        ...userLocation,
-      },
+        alias: hospitals,
+        locale: 'en_GB'
+      }
     })
     .then(res =>
       res.data.categories.map(category => {
         return {
-          name: category.name,
-          coords: category.coordinates,
+          name: category.title
         }
       })
     )
@@ -30,5 +28,5 @@ const getHospitals = userLocation => {
 }
 
 export default {
-  getHospitals,
+  getHospitals
 }
