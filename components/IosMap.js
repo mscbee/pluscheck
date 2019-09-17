@@ -1,24 +1,22 @@
 import React from 'react';
 import MapView from 'react-native-maps';
-import { Marker } from 'react-native-maps';
+import Marker from 'react-native-maps';
 
 class IosMap extends React.Component { 
-      
     
     render() { 
         return ( 
             <MapView 
                 flex={1} 
-                showsUserLocation={true}
-                showsMyLocationButton={true}
+                showsUserLocation
                 followsUserLocation={true}
-                showsMyLocationButton={true}
+                showsMyLocationButton
                 showCompass={true}
-                showScale={true}
-                scrollEnabled={true}
-                loadingEnabled={true}
-                minZoomLevel={1}
-                rotateEnabled={true}
+                // showScale={true}
+                // scrollEnabled={true}
+                // loadingEnabled={true}
+                // rotateEnabled={true}
+                //region={region}
             >
             </MapView>
         );  
